@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "301226482421",
+    "firebase_url": "https://edugram-9d2ff.firebaseio.com",
+    "project_id": "edugram-9d2ff",
+    "storage_bucket": "edugram-9d2ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301226482421:android:7547f4ed7955b51f",
+        "android_client_info": {
+          "package_name": "com.edugram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301226482421-1t2g50ig5b993gj79ehc9ldjjhtisfet.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edugram",
+            "certificate_hash": "5febd84cc18f970ee0e079ad9c9567851f1685ef"
+          }
+        },
+        {
+          "client_id": "301226482421-vqblmnipqfsi5h8p8frau93mj11k13h5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArOmLCl5R00DOOUckAihL7lvRnNSQNsVc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301226482421-vqblmnipqfsi5h8p8frau93mj11k13h5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
