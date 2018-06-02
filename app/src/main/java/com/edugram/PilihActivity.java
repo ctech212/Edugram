@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+/**
+ * merupakan class untuk menghandle pilihan materi yang dapat dipilih oleh user.
+ * @version 02/06/2018
+ */
 public class PilihActivity extends AppCompatActivity {
 
     @Override

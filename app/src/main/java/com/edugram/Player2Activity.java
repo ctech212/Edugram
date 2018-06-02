@@ -4,13 +4,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener;
 
-public class Player2Activity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
+/**
+ * Merupakan class untuk melakukan setting terhadap video yang akan ditampilkan yaitu untuk materi hewan bawah laut. Digunakan API youtube untuk menampilkan video.
+ *
+ * @version 02/06/2018
+ */
+public class Player2Activity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     YouTubePlayer player;
     private Player2Activity.MyPlayerStateChangeListener playerStateChangeListener;
@@ -19,16 +25,17 @@ public class Player2Activity extends YouTubeBaseActivity implements YouTubePlaye
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.activity_player2);
+        setContentView(R.layout.yt2_player);
 
         YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.youTubePlayerView2);
-        playerView.initialize(DeveloperKey.DEVELOPER_KEY,this);
+        playerView.initialize(DeveloperKey.DEVELOPER_KEY, this);
 
-        playerStateChangeListener= new Player2Activity.MyPlayerStateChangeListener();
+        playerStateChangeListener = new Player2Activity.MyPlayerStateChangeListener();
 
 
     }
 
+    //inisialisasi video(URL)
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean b) {
 
@@ -46,15 +53,13 @@ public class Player2Activity extends YouTubeBaseActivity implements YouTubePlaye
         }
 
 
-
-
     }
 
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
 
     }
-
+    //handle perubahan
     private final class MyPlayerStateChangeListener implements PlayerStateChangeListener {
         @Override
         public void onLoading() {
@@ -82,14 +87,14 @@ public class Player2Activity extends YouTubeBaseActivity implements YouTubePlaye
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(Player2Activity.this,Exercise2Activity.class);
+                            Intent intent = new Intent(Player2Activity.this, PilganOceanActivity.class);
                             startActivity(intent);
                             finish();
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(Player2Activity.this,MainActivity.class);
+                            Intent intent = new Intent(Player2Activity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         }
@@ -105,7 +110,6 @@ public class Player2Activity extends YouTubeBaseActivity implements YouTubePlaye
 
 
     }
-
 
 
 }

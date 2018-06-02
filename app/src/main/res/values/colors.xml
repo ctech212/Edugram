@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#0d5696</color>
     <color name="bg_splash">#17bfaf</color>
     <color name="splash_title">#07011a</color>
     <color name="bg_login">#1f7ba1</color>
@@ -15,4 +15,6 @@
     <color name="input_register_hint">#5e6266</color>
     <color name="btn_logut_bg">#ff6861</color>
     <color name="bg_app">#1c6f91</color>
+    <color name="abu">#bcbcbc</color>
+    <color name="abutua">#0a5980</color>
 </resources>

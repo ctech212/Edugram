@@ -20,9 +20,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Merupakan class main, yaitu menu utama sebagai tampilan untuk berpindah ke fitur-fitur yang ada pada aplikasi.
+ *
+ * @version 02/06/2018.
+ */
 public class MainActivity extends AppCompatActivity {
 
-    private Button signOut,play,help,exit;
+    private Button signOut, play, help, exit;
 
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
@@ -36,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         actionBar.hide();
         setContentView(R.layout.activity_main);
         signOut = (Button) findViewById(R.id.sign_out);
-        play= (Button)findViewById(R.id.play);
-        help= (Button)findViewById(R.id.help);
-        exit= (Button)findViewById(R.id.exit);
+        play = (Button) findViewById(R.id.play);
+        help = (Button) findViewById(R.id.help);
+        exit = (Button) findViewById(R.id.exit);
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        //session login
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -60,17 +66,13 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-
-
-
-
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
         }
 
-
+        //menghandle button signout
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,15 +80,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //menghandle button play, untuk memilih materi yang tersedia.
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,PilihActivity.class);
+                Intent intent = new Intent(MainActivity.this, PilihActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
+        //menghandle button help, untuk berpindah ke menu help.
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        //menghandle button back ketika diklik user.
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,8 +126,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //sign out method
-    public void signOut()
-    {
+    public void signOut() {
         auth.signOut();
     }
 

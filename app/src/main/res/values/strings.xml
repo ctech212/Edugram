@@ -36,6 +36,7 @@
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="help">Help</string>
     <string name="exit">Exit</string>
+    <string name="soalsolar">Apa Nama Planet Terbesar pada Sistem Tata Surya Kita?</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -44,7 +45,8 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="tes">"\u00a9 Manajemen Proyek IT"</string>
+    <string name="author">Creator:\n Yeremia Nikanor Nugroho \n David Raditya K \n Mochamad Fahmi Fajrin </string>
+    <string name="helpdetail">Edugram adalah aplikasi game based learning berbasis android dengan tambahan media yaitu hologram. Terdapat dua materi yaitu tentang Sistem Tata Surya dan Ekosistem Bawah Laut. Jika ingin melihat materi, Anda terlebih dahulu harus mendaftarkan akun, dan login. Dan jangan lupa untuk memasang Hologram agar objek dari video dapat terlihat.</string>
 </resources>

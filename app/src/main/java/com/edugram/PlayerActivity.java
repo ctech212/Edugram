@@ -10,6 +10,11 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener;
 
+/**
+ * Merupakan class untuk melakukan setting terhadap video yang akan ditampilkan yaitu untuk materi sistem tata surya. Digunakan API youtube untuk menampilkan video.
+ *
+ * @version 02/06/2018
+ */
 public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     YouTubePlayer player;
@@ -80,7 +85,7 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(PlayerActivity.this,ExerciseActivity.class);
+                            Intent intent = new Intent(PlayerActivity.this,PilganSolarActivity.class);
                             startActivity(intent);
                             finish();
                         }

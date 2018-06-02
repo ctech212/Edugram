@@ -1,6 +1,7 @@
 package com.edugram;
 
 import android.content.DialogInterface;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,18 +18,29 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
+/**
+ * Merupakan class exercise, digunakan untuk menghandle tanya jawab dari materi solar sistem dengan menggunakan voice recognition.
+ *
+ * @version 02/06/2018
+ */
 public class ExerciseActivity extends AppCompatActivity {
     private TextView inputSuara;
+    public TextView skor;
+    int passingSkor = 0;
     private Button tombolBicara;
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_exercise);
-        getSupportActionBar().setTitle("Exercise");
         inputSuara = (TextView) findViewById(R.id.inputSuara);
         tombolBicara = (Button) findViewById(R.id.tombolBicara);
+        skor = (TextView) findViewById(R.id.tvSkor);
+        skorSementara();
+
 
         tombolBicara.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +50,13 @@ public class ExerciseActivity extends AppCompatActivity {
         });
     }
 
+    //untuk melakukan inisialisasi skor, yaitu mendapatkan skor dari activity soal pilihan ganda materi solar sistem.
+    public void skorSementara() {
+        String skorPilGan = getIntent().getStringExtra("skorAkhir");
+        skor.setText("" + skorPilGan);
+        passingSkor = Integer.parseInt(skorPilGan);
+    }
+
     // Untuk menampilkan Google speech input dialog
     public void tanyaInputSuara() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -45,7 +64,7 @@ public class ExerciseActivity extends AppCompatActivity {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
-                "Hei Bicara sesuatu ");
+                "Hei Jawab Pertanyaannya ");
 
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
@@ -59,9 +78,7 @@ public class ExerciseActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-
-        Toast.makeText(this, "Hasil suara ditampilkan", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Cek Jawaban Anda", Toast.LENGTH_SHORT).show();
         switch (requestCode) {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
@@ -74,14 +91,28 @@ public class ExerciseActivity extends AppCompatActivity {
                             .setCancelable(false)
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    Intent intent = new Intent(ExerciseActivity.this,MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+
+                                    if (inputSuara.getText().toString().equalsIgnoreCase("Jupiter")) {
+
+                                        passingSkor = passingSkor + 20;
+                                        Toast.makeText(ExerciseActivity.this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(ExerciseActivity.this, ScoreActivity.class);
+                                        intent.putExtra("finalSkor", passingSkor);
+                                        startActivity(intent);
+                                    } else {
+
+                                        Toast.makeText(ExerciseActivity.this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+                                        passingSkor = passingSkor + 0;
+                                        Intent intent = new Intent(ExerciseActivity.this, ScoreActivity.class);
+                                        intent.putExtra("finalSkor", passingSkor);
+                                        startActivity(intent);
+                                    }
+
                                 }
                             })
                             .setNegativeButton("No", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    Intent intent = new Intent(ExerciseActivity.this,ExerciseActivity.class);
+                                    Intent intent = new Intent(ExerciseActivity.this, ExerciseActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

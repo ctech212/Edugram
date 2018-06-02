@@ -11,6 +11,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+
+/**
+ * Merupakan class untuk mengandle tampilan awal saat aplikasi dibuka.
+ *
+ * @version 02/06/2018
+ */
 public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 3500;
     LinearLayout l1,l2;

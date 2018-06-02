@@ -24,8 +24,12 @@
         <activity android:name=".PlayerActivity" />
         <activity android:name=".ExerciseActivity" />
         <activity android:name=".Player2Activity" />
-        <activity android:name=".Exercise2Activity" />
-        <activity android:name=".PilihActivity"></activity>
+        <activity android:name=".PilihActivity" />
+        <activity android:name=".PilganSolarActivity" />
+        <activity android:name=".ScoreActivity" />
+        <activity android:name=".PilganOceanActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".QuizEssayOceanActivity"></activity>
     </application>
 
 </manifest>
