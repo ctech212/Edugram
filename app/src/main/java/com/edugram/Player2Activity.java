@@ -48,7 +48,7 @@ public class Player2Activity extends YouTubeBaseActivity implements YouTubePlaye
             player.setShowFullscreenButton(false);
             player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
             // You can change the ID.. of the video to be played
-            player.loadVideo("qS_VQDL4Im0");
+            player.loadVideo("CzAvoPrj2H8");
 
         }
 
